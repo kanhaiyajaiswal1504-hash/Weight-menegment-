@@ -3,342 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Online Booking - Krishna Health Care</title>
-
+<title>Aarogyam Package Booking | Krishna Health Care Services</title>
 <style>
-*{box-sizing:border-box}
-
-body{
- margin:0;
- padding:15px;
- background:#f2f6fa;
- font-family:Arial,sans-serif;
- color:#18304e;
-}
-
-.container{
- max-width:600px;
- margin:20px auto;
- background:white;
- padding:22px;
- border-radius:15px;
- box-shadow:0 5px 20px #0001;
-}
-
-h2{color:#102b50}
-
-.summary{
- background:#fff4e5;
- padding:15px;
- border-radius:10px;
- margin:15px 0;
-}
-
-.price{
- font-size:26px;
- color:#bd2338;
- font-weight:bold;
-}
-
-.old{
- text-decoration:line-through;
- color:#888;
- margin-left:8px;
-}
-
-label{
- display:block;
- margin-top:13px;
- font-weight:bold;
-}
-
-input,select,textarea{
- width:100%;
- padding:12px;
- border:1px solid #ccc;
- border-radius:8px;
- font-size:16px;
-}
-
-button{
- width:100%;
- padding:15px;
- background:#168447;
- color:white;
- border:0;
- border-radius:9px;
- font-size:17px;
- font-weight:bold;
- margin-top:20px;
- cursor:pointer;
-}
-
-.back{
- display:block;
- margin-top:15px;
- color:#1769aa;
- text-decoration:none;
-}
-
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial, sans-serif;background:#f4f6fa;color:#202638}
+  .wrap{max-width:760px;margin:0 auto;padding:16px}
+  .hero{background:#202943;color:#fff;padding:22px 18px;border-radius:14px;text-align:center}
+  .hero h1{margin:0 0 8px;font-size:25px}
+  .hero p{margin:0;line-height:1.5}
+  .card{background:#fff;margin-top:16px;padding:18px;border-radius:14px;box-shadow:0 2px 12px #15213a12}
+  label{display:block;font-weight:700;margin:13px 0 6px}
+  input,select,textarea{width:100%;padding:12px;border:1px solid #cbd2df;border-radius:8px;font-size:16px;background:#fff}
+  textarea{min-height:75px;resize:vertical}
+  .hint{font-size:13px;color:#5e687a;line-height:1.5}
+  .package-detail{display:none;border:1px solid #dce2ed;border-radius:12px;margin-top:16px;padding:15px;background:#fbfcff}
+  .package-detail h2{margin:0 0 6px;color:#202943}
+  .price{font-size:20px;font-weight:700;color:#d94343;margin:12px 0}
+  .price del{font-size:15px;color:#737b89;font-weight:400}
+  .profile{border-top:1px solid #e4e8ef;padding:10px 0}
+  .profile h3{font-size:16px;margin:4px 0 7px;color:#29344d}
+  .profile ul{margin:0;padding-left:20px;line-height:1.55}
+  .profile li{margin:2px 0}
+  .btn{width:100%;border:0;border-radius:9px;padding:14px;font-size:17px;font-weight:700;background:#159447;color:#fff;margin-top:18px}
+  .btn:active{opacity:.85}
+  .small{font-size:12px;color:#6d7482;line-height:1.5}
+  .required{color:#d33}
 </style>
 </head>
-
 <body>
+<div class="wrap">
+  <header class="hero">
+    <h1>Krishna Health Care Services</h1>
+    <p>Aarogyam Health Checkup Packages<br>अपना पैकेज चुनें और टेस्ट की पूरी जानकारी देखें</p>
+  </header>
 
-<div class="container">
+  <form class="card" id="bookingForm">
+    <h2 style="margin-top:0">Online Booking</h2>
 
-<h2>Online Booking</h2>
+    <label for="package">Aarogyam Package चुनें <span class="required">*</span></label>
+    <select id="package" name="package" required>
+      <option value="">-- Select Package --</option>
+      <option value="A Pro">Aarogyam A Pro</option>
+      <option value="B Pro">Aarogyam B Pro</option>
+      <option value="C Pro">Aarogyam C Pro</option>
+      <option value="D Pro">Aarogyam D Pro</option>
+      <option value="E Pro">Aarogyam E Pro</option>
+      <option value="F Pro">Aarogyam F Pro</option>
+      <option value="X Pro">Aarogyam X Pro</option>
+      <option value="XL Pro">Aarogyam XL Pro</option>
+      <option value="Camp Profile 1">Aarogyam Camp Profile 1</option>
+      <option value="Camp Profile 2">Aarogyam Camp Profile 2</option>
+      <option value="Camp Profile 3">Aarogyam Camp Profile 3</option>
+    </select>
 
-<p>Krishna Health Care Services</p>
+    <section class="package-detail" id="packageDetails" aria-live="polite">
+      <h2 id="packageName"></h2>
+      <div id="parameterCount" class="hint"></div>
+      <div class="price" id="packagePrice"></div>
+      <div id="profileDetails"></div>
+      <p class="small">नोट: टेस्ट/प्रोफाइल की उपलब्धता लैब के वर्तमान पैकेज और सैंपलिंग नियमों के अनुसार सत्यापित करें।</p>
+    </section>
 
-<div class="summary">
+    <div class="hint" style="margin-top:16px">मरीज की जानकारी</div>
+    <label for="patientName">मरीज का नाम <span class="required">*</span></label>
+    <input id="patientName" name="patientName" required placeholder="पूरा नाम">
 
-<strong id="packageName">
-Select Aarogyam Package
-</strong>
+    <label for="age">उम्र <span class="required">*</span></label>
+    <input id="age" name="age" type="number" min="1" max="120" required placeholder="उम्र">
 
-<p id="testCount"></p>
+    <label for="gender">लिंग <span class="required">*</span></label>
+    <select id="gender" name="gender" required>
+      <option value="">चुनें</option><option>Male</option><option>Female</option><option>Other</option>
+    </select>
 
-<div>
-<span class="price" id="offerPrice">₹0</span>
-<span class="old" id="mrpPrice"></span>
-</div>
+    <label for="mobile">मोबाइल नंबर <span class="required">*</span></label>
+    <input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10 अंकों का मोबाइल नंबर">
 
-<strong>50% Discount Applied Automatically</strong>
+    <label for="address">पूरा पता</label>
+    <textarea id="address" name="address" placeholder="मकान नंबर, मोहल्ला, शहर, पिन कोड"></textarea>
 
-</div>
+    <label for="bookingDate">बुकिंग की तारीख</label>
+    <input id="bookingDate" name="bookingDate" type="date">
 
-<form id="bookingForm">
+    <label for="timeSlot">समय</label>
+    <select id="timeSlot" name="timeSlot">
+      <option value="">समय चुनें</option>
+      <option>6:00 AM - 7:00 AM</option>
+      <option>7:00 AM - 8:00 AM</option>
+      <option>8:00 AM - 9:00 AM</option>
+      <option>9:00 AM - 10:00 AM</option>
+      <option>10:00 AM - 11:00 AM</option>
+      <option>11:00 AM - 12:00 PM</option>
+      <option>12:00 PM - 1:00 PM</option>
+      <option>1:00 PM - 2:00 PM</option>
+      <option>2:00 PM - 3:00 PM</option>
+      <option>3:00 PM - 4:00 PM</option>
+      <option>4:00 PM - 5:00 PM</option>
+      <option>5:00 PM - 6:00 PM</option>
+      <option>6:00 PM - 7:00 PM</option>
+      <option>7:00 PM - 8:00 PM</option>
+      <option>8:00 PM - 9:00 PM</option>
+    </select>
 
-<label>Select Aarogyam Package *</label>
-
-<select id="packageSelect" required>
-
-<option value="">Select Package</option>
-
-<option value="A Pro">Aarogyam A Pro - 12 Tests</option>
-
-<option value="B Pro">Aarogyam B Pro - 59 Tests</option>
-
-<option value="C Pro">Aarogyam C Pro - 71 Tests</option>
-
-<option value="D Pro">Aarogyam D Pro - 78 Tests</option>
-
-<option value="E Pro">Aarogyam E Pro - 85 Tests</option>
-
-<option value="F Pro">Aarogyam F Pro - 111 Tests</option>
-
-<option value="X Pro">Aarogyam X Pro - 124 Tests</option>
-
-<option value="XL Pro">Aarogyam XL Pro - 133 Tests</option>
-
-</select>
-
-<label>Patient Name *</label>
-<input type="text" id="name" required placeholder="Enter Patient Name">
-
-<label>Age *</label>
-<input type="number" id="age" required min="1" max="120">
-
-<label>Gender *</label>
-<select id="gender" required>
-<option value="">Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-<option>Other</option>
-</select>
-
-<label>Mobile Number *</label>
-<input type="tel" id="phone" maxlength="10"
-pattern="[0-9]{10}" required placeholder="10 Digit Mobile">
-
-<label>Address *</label>
-<textarea id="address" required></textarea>
-
-<label>Booking Date *</label>
-<input type="date" id="date" required>
-
-<label>Time Slot</label>
-<select id="time">
-<option>Any Time</option>
-<option>6 AM - 8 AM</option>
-<option>8 AM - 10 AM</option>
-<option>10 AM - 12 PM</option>
-<option>12 PM - 2 PM</option>
-<option>2 PM - 4 PM</option>
-<option>4 PM - 6 PM</option>
-</select>
-
-<label>Collection Type</label>
-<select id="collection">
-<option>Home Collection</option>
-<option>Visit Collection Centre</option>
-</select>
-
-<button type="submit">
-Submit Booking on WhatsApp
-</button>
-
-</form>
-
-<a class="back" href="index.html">
-← All Packages
-</a>
-
+    <button class="btn" type="submit">WhatsApp पर Booking भेजें</button>
+    <p class="small">बटन दबाने पर WhatsApp खुलेगा। मैसेज देखकर Send दबाएँ। मैसेज अपने-आप नहीं भेजा जाता।</p>
+  </form>
 </div>
 
 <script>
-
-const WHATSAPP_NUMBER="918120262770";
-
-const packages={
-
-"A Pro":{tests:12,mrp:999},
-"B Pro":{tests:59,mrp:1999},
-"C Pro":{tests:71,mrp:2999},
-"D Pro":{tests:78,mrp:3999},
-"E Pro":{tests:85,mrp:5499},
-"F Pro":{tests:111,mrp:6999},
-"X Pro":{tests:124,mrp:8499},
-"XL Pro":{tests:133,mrp:9999}
-
+const packageData = {
+  "A Pro": {
+    count: 12, mrp: 999,
+    profiles: [
+      ["Thyroid Basic (1)", ["TSH - Ultrasensitive"]],
+      ["Lipid Basic (2)", ["Total Cholesterol", "Triglycerides"]],
+      ["Liver Basic (4)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)"]],
+      ["Kidney Basic (5)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)"]]
+    ]
+  },
+  "B Pro": {
+    count: 59, mrp: 1999,
+    profiles: [
+      ["Thyroid Basic (1)", ["TSH - Ultrasensitive"]],
+      ["Lipid Advanced (10)", ["Total Cholesterol", "Triglycerides", "HDL Cholesterol - Direct", "HDL / LDL Ratio", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Trig / HDL Ratio", "VLDL Cholesterol"]],
+      ["Liver Advanced (11)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Basic (5)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamins Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters (individual component names are not printed in the supplied brochure image)"]]
+    ]
+  },
+  "C Pro": {
+    count: 71, mrp: 2999,
+    profiles: [
+      ["Thyroid Advanced (3)", ["TSH - Ultrasensitive", "Total Thyroxine (T4)", "Total Triiodothyronine (T3)"]],
+      ["Lipid Advanced (10)", ["Total Cholesterol", "Triglycerides", "HDL Cholesterol - Direct", "HDL / LDL Ratio", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Trig / HDL Ratio", "VLDL Cholesterol"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)", "Calcium", "Uric Acid"]],
+      ["Iron Deficiency Profile (4)", ["Iron", "% Transferrin Saturation", "Total Iron Binding Capacity (TIBC)", "Unsaturated Iron Binding Capacity (UIBC)"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamins Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Electrolytes (2)", ["Sodium", "Chloride"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]],
+      ["Other", ["High Sensitivity C-Reactive Protein (hs-CRP)"]]
+    ]
+  },
+  "D Pro": {
+    count: 78, mrp: 3999,
+    profiles: [
+      ["Thyroid Advanced (3)", ["TSH - Ultrasensitive", "Free Triiodothyronine (FT3)", "Free Thyroxine (FT4)"]],
+      ["Lipid Advanced (10)", ["Total Cholesterol", "Triglycerides", "HDL Cholesterol - Direct", "HDL / LDL Ratio", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Trig / HDL Ratio", "VLDL Cholesterol"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)", "Calcium", "Uric Acid"]],
+      ["Iron Deficiency Profile (4)", ["Iron", "% Transferrin Saturation", "Total Iron Binding Capacity (TIBC)", "Unsaturated Iron Binding Capacity (UIBC)"]],
+      ["Cardiac Risk Markers (5)", ["Lipoprotein (a) [Lp(a)]", "Apo B / Apo A1 Ratio (apo B/a1)", "Apolipoprotein - A1 (apo-a1)", "Apolipoprotein - B (apo-b)", "Homocysteine"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamins Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Electrolytes (2)", ["Sodium", "Chloride"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]],
+      ["Other", ["Phosphorous", "Total IgE (TIGE)", "High Sensitivity C-Reactive Protein (hs-CRP)"]]
+    ]
+  },
+  "E Pro": {
+    count: 85, mrp: 5499,
+    profiles: [
+      ["Thyroid Advanced (3)", ["TSH - Ultrasensitive", "Free Triiodothyronine (FT3)", "Free Thyroxine (FT4)"]],
+      ["Lipid Advanced (10)", ["Total Cholesterol", "Triglycerides", "HDL Cholesterol - Direct", "HDL / LDL Ratio", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Trig / HDL Ratio", "VLDL Cholesterol"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)", "Calcium", "Uric Acid"]],
+      ["Iron Deficiency Profile (4)", ["Iron", "% Transferrin Saturation", "Total Iron Binding Capacity (TIBC)", "Unsaturated Iron Binding Capacity (UIBC)"]],
+      ["Cardiac Risk Markers (5)", ["Lipoprotein (a) [Lp(a)]", "Apo B / Apo A1 Ratio", "Apolipoprotein - A1 (apo-a1)", "Apolipoprotein - B (apo-b)", "Homocysteine"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamins Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Electrolytes (2)", ["Sodium", "Chloride"]],
+      ["Pancreas Profile (2)", ["Lipase", "Amylase"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]],
+      ["Other Tests", ["Phosphorous", "Total IgE (TIGE)", "Fructosamine", "Magnesium", "Ferritin", "Folate", "Rheumatoid Factor (RF)", "High Sensitivity C-Reactive Protein (hs-CRP)"]]
+    ]
+  },
+  "F Pro": {
+    count: 111, mrp: 6999,
+    profiles: [
+      ["Thyroid Advanced (3)", ["TSH - Ultrasensitive", "Free Triiodothyronine (FT3)", "Free Thyroxine (FT4)"]],
+      ["Lipid Advanced (10)", ["Total Cholesterol", "Triglycerides", "HDL Cholesterol - Direct", "HDL / LDL Ratio", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Trig / HDL Ratio", "VLDL Cholesterol"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)", "Calcium", "Uric Acid"]],
+      ["Iron Deficiency Profile (4)", ["Iron", "% Transferrin Saturation", "Total Iron Binding Capacity (TIBC)", "Unsaturated Iron Binding Capacity (UIBC)"]],
+      ["Cardiac Risk Markers (5)", ["Lipoprotein (a) [Lp(a)]", "Apo B / Apo A1 Ratio", "Apolipoprotein - A1 (apo-a1)", "Apolipoprotein - B (apo-b)", "Homocysteine"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamins Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Electrolytes (2)", ["Sodium", "Chloride"]],
+      ["Pancreas Profile (2)", ["Lipase", "Amylase"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]],
+      ["Other Tests", ["Phosphorous", "Total IgE (TIGE)", "Fructosamine", "Magnesium", "Ferritin", "Anti Nuclear Antibodies (ANA)", "Anti CCP (ACCP)", "LP-PLA2", "Insulin - Fasting", "Folate", "Rheumatoid Factor (RF)", "High Sensitivity C-Reactive Protein (hs-CRP)", "Elements 22 (Toxic and Nutrients): Aluminium, Arsenic, Barium, Cadmium, Caesium, Mercury, Lead, Tin, Bismuth, Beryllium, Antimony, Strontium, Thallium, Uranium, Cobalt, Chromium, Molybdenum, Silver, Vanadium, Selenium, Nickel, Manganese"]]
+    ]
+  },
+  "X Pro": {
+    count: 124, mrp: 8499,
+    profiles: [
+      ["Package information", ["124 parameters as shown in your package poster. The complete X Pro individual test-list image/PDF was not supplied clearly. Please verify exact X Pro additions with the current Thyrocare handbill before collection."]],
+      ["Common profile groups shown in the supplied package material", ["Thyroid Advanced", "Lipid Advanced", "Liver Extended", "Kidney Advanced", "Iron Deficiency Profile", "Cardiac Risk Markers", "Diabetes Profile", "Vitamins Profile", "Electrolytes", "Pancreas Profile", "CBC", "Phosphorous", "Fructosamine", "Magnesium", "Ferritin", "ANA", "Anti-CCP", "LP-PLA2", "Insulin - Fasting", "RF", "hs-CRP", "Elements 22"]]
+    ]
+  },
+  "XL Pro": {
+    count: 133, mrp: 9999,
+    profiles: [
+      ["Thyroid Advanced (3)", ["TSH - Ultrasensitive", "Free Triiodothyronine (FT3)", "Free Thyroxine (FT4)"]],
+      ["Lipid Advanced (10)", ["Total Cholesterol", "Triglycerides", "HDL Cholesterol - Direct", "HDL / LDL Ratio", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Trig / HDL Ratio", "VLDL Cholesterol"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Sr. Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Creatinine - Serum", "Urea / Sr. Creatinine Ratio", "Urea (Calculated)", "Calcium", "Uric Acid"]],
+      ["Iron Deficiency Profile (5)", ["Iron", "% Transferrin Saturation", "Total Iron Binding Capacity (TIBC)", "Unsaturated Iron Binding Capacity (UIBC)", "Ferritin"]],
+      ["Cardiac Risk Markers (5)", ["Lipoprotein (a) [Lp(a)]", "Apo B / Apo A1 Ratio", "Apolipoprotein - A1 (apo-a1)", "Apolipoprotein - B (apo-b)", "Homocysteine"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamins Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Electrolytes (2)", ["Sodium", "Chloride"]],
+      ["Pancreas Profile (2)", ["Lipase", "Amylase"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]],
+      ["Other Tests", ["Phosphorous", "Total IgE / Allergy profile as per current package version", "Fructosamine", "Magnesium", "Anti Nuclear Antibodies (ANA)", "Anti CCP (ACCP)", "LP-PLA2", "Insulin - Fasting", "Blood Ketone (D3HB)", "Rheumatoid Factor (RF)", "High Sensitivity C-Reactive Protein (hs-CRP)", "Elements 22 (Toxic and Nutrients): Aluminium, Arsenic, Barium, Cadmium, Caesium, Mercury, Lead, Tin, Bismuth, Beryllium, Antimony, Strontium, Thallium, Uranium, Cobalt, Chromium, Molybdenum, Silver, Vanadium, Selenium, Nickel, Manganese"]],
+      ["Complete Vitamins Profile (13)", ["Folate", "Vitamin A", "Vitamin E", "Vitamin K", "Vitamin K2", "Vitamin D2", "Vitamin D3", "Vitamin B1 / Thiamin", "Vitamin B2 / Riboflavin", "Vitamin B3 / Nicotinic Acid", "Vitamin B5 / Pantothenic", "Vitamin B6 / Pyridoxal-5-phosphate", "Vitamin B7 / Biotin", "Vitamin B9 / Folic acid"]],
+      ["Steroid Profile (9)", ["Androstenedione", "17-hydroxyprogesterone", "Cortisol", "Corticosterone", "Deoxycortisol", "Dehydroepiandrosterone", "DHEA-Sulphate (DHEAS)", "Estradiol", "Progesterone"]]
+    ]
+  },
+  "Camp Profile 1": {
+    count: 62, mrp: 2530, fixedPrice: true,
+    profiles: [
+      ["Lipid Advanced (10)", ["Total Cholesterol", "HDL Cholesterol - Direct", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Triglycerides", "VLDL Cholesterol", "HDL / LDL Ratio", "Trig / HDL Ratio"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Calcium", "Creatinine - Serum", "Uric Acid", "Urea (Calculated)", "Urea / Sr. Creatinine Ratio"]],
+      ["Thyroid Advanced (3)", ["Total Triiodothyronine (T3)", "Total Thyroxine (T4)", "Ultrasensitive TSH (UTSH)"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]]
+    ]
+  },
+  "Camp Profile 2": {
+    count: 69, mrp: 3740, fixedPrice: true,
+    profiles: [
+      ["Lipid Advanced (10)", ["Total Cholesterol", "HDL Cholesterol - Direct", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Triglycerides", "VLDL Cholesterol", "HDL / LDL Ratio", "Trig / HDL Ratio"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Calcium", "Creatinine - Serum", "Uric Acid", "Urea (Calculated)", "Urea / Sr. Creatinine Ratio"]],
+      ["Thyroid Advanced (3)", ["Total Triiodothyronine (T3)", "Total Thyroxine (T4)", "Ultrasensitive TSH (UTSH)"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamin Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Cardiac Risk Markers (5)", ["Lipoprotein (a) [Lp(a)]", "Apo B / Apo A1 Ratio", "Apolipoprotein - A1 (apo-a1)", "Apolipoprotein - B (apo-b)", "Homocysteine"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]]
+    ]
+  },
+  "Camp Profile 3": {
+    count: 78, mrp: 5280, fixedPrice: true,
+    profiles: [
+      ["Lipid Advanced (10)", ["Total Cholesterol", "HDL Cholesterol - Direct", "LDL Cholesterol - Direct", "LDL / HDL Ratio", "Non-HDL Cholesterol", "TC / HDL Cholesterol Ratio", "Triglycerides", "VLDL Cholesterol", "HDL / LDL Ratio", "Trig / HDL Ratio"]],
+      ["Liver Extended (12)", ["Bilirubin - Total", "SGOT / SGPT Ratio", "Aspartate Aminotransferase (SGOT)", "Alanine Transaminase (SGPT)", "Alkaline Phosphatase", "Bilirubin - Direct", "Bilirubin (Indirect)", "Serum Albumin / Globulin Ratio", "Protein - Total", "Albumin - Serum", "Serum Globulin", "Gamma Glutamyl Transferase (GGT)"]],
+      ["Kidney Advanced (7)", ["BUN / Creatinine Ratio", "Blood Urea Nitrogen (BUN)", "Calcium", "Creatinine - Serum", "Uric Acid", "Urea (Calculated)", "Urea / Sr. Creatinine Ratio"]],
+      ["Thyroid Advanced (3)", ["Total Triiodothyronine (T3)", "Total Thyroxine (T4)", "Ultrasensitive TSH (UTSH)"]],
+      ["Diabetes Profile (2)", ["HbA1c", "Average Blood Glucose (ABG)"]],
+      ["Vitamin Profile (2)", ["25-OH Vitamin D (Total)", "Vitamin B-12"]],
+      ["Cardiac Risk Markers (5)", ["Lipoprotein (a) [Lp(a)]", "Apo B / Apo A1 Ratio", "Apolipoprotein - A1 (apo-a1)", "Apolipoprotein - B (apo-b)", "Homocysteine"]],
+      ["Iron Deficiency Profile (4)", ["Iron", "% Transferrin Saturation", "Total Iron Binding Capacity (TIBC)", "Unsaturated Iron Binding Capacity (UIBC)"]],
+      ["Serum Electrolytes (2)", ["Sodium", "Chloride"]],
+      ["Other Tests", ["Rheumatoid Factor (RF)", "Erythrocyte Sedimentation Rate (ESR)", "C-Reactive Protein (CRP)"]],
+      ["CBC (28)", ["Complete Blood Count - 28 parameters"]]
+    ]
+  }
 };
 
-function money(n){
-return "₹"+Number(n).toLocaleString("en-IN",{
-minimumFractionDigits:2,
-maximumFractionDigits:2
-});
-}
+const packageSelect = document.getElementById("package");
+const detailsBox = document.getElementById("packageDetails");
 
-const select=document.getElementById("packageSelect");
+packageSelect.addEventListener("change", function () {
+  const key = this.value;
+  if (!key || !packageData[key]) {
+    detailsBox.style.display = "none";
+    return;
+  }
+  const item = packageData[key];
+  document.getElementById("packageName").textContent = "Aarogyam " + key;
+  document.getElementById("parameterCount").textContent = item.count + " Parameters";
+  const offer = item.fixedPrice ? item.mrp : item.mrp / 2;
+  document.getElementById("packagePrice").innerHTML = item.fixedPrice
+    ? 'Package Price ₹' + offer.toLocaleString("en-IN")
+    : '<del>MRP ₹' + item.mrp.toLocaleString("en-IN") + '</del> &nbsp; 50% OFF &nbsp; Offer ₹' +
+      offer.toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
 
-function updatePrice(){
-
-let p=packages[select.value];
-
-if(!p){
-document.getElementById("packageName").innerText=
-"Select Aarogyam Package";
-document.getElementById("testCount").innerText="";
-document.getElementById("offerPrice").innerText="₹0";
-document.getElementById("mrpPrice").innerText="";
-return;
-}
-
-document.getElementById("packageName").innerText=
-"Aarogyam "+select.value;
-
-document.getElementById("testCount").innerText=
-p.tests+" Tests Package";
-
-document.getElementById("mrpPrice").innerText=
-money(p.mrp);
-
-document.getElementById("offerPrice").innerText=
-money(p.mrp*0.50);
-
-}
-
-select.addEventListener("change",updatePrice);
-
-
-// Package selected from Packages page
-
-const params=new URLSearchParams(window.location.search);
-
-let selected=(params.get("package")||"")
-.replace(/^Aarogyam\s+/i,"");
-
-if(packages[selected]){
-select.value=selected;
-}
-
-updatePrice();
-
-
-// Minimum booking date
-
-let today=new Date();
-document.getElementById("date").min=
-new Date(today.getTime()-today.getTimezoneOffset()*60000)
-.toISOString().split("T")[0];
-
-
-// WhatsApp Booking Submit
-
-document.getElementById("bookingForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-let p=packages[select.value];
-
-if(!p){
-alert("Please Select Aarogyam Package");
-return;
-}
-
-let offer=p.mrp*0.50;
-
-let message=
-"NEW AAROGYAM BOOKING\n"+
-"Krishna Health Care Services\n\n"+
-
-"Patient Name: "+
-document.getElementById("name").value+"\n"+
-
-"Age: "+
-document.getElementById("age").value+"\n"+
-
-"Gender: "+
-document.getElementById("gender").value+"\n"+
-
-"Mobile: "+
-document.getElementById("phone").value+"\n"+
-
-"Address: "+
-document.getElementById("address").value+"\n\n"+
-
-"Package: Aarogyam "+select.value+"\n"+
-
-"Total Tests: "+p.tests+"\n"+
-
-"MRP: "+money(p.mrp)+"\n"+
-
-"Discount: 50%\n"+
-
-"Offer Price: "+money(offer)+"\n\n"+
-
-"Booking Date: "+
-document.getElementById("date").value+"\n"+
-
-"Time: "+
-document.getElementById("time").value+"\n"+
-
-"Collection: "+
-document.getElementById("collection").value;
-
-
-// WhatsApp Open
-
-let url=
-"https://api.whatsapp.com/send?phone="+
-WHATSAPP_NUMBER+
-"&text="+encodeURIComponent(message);
-
-// Open WhatsApp in new tab
-let wa=window.open(url,"_blank");
-
-// Fallback if popup blocked
-if(!wa){
-window.location.href=url;
-}
-
+  const target = document.getElementById("profileDetails");
+  target.innerHTML = "";
+  item.profiles.forEach(profile => {
+    const section = document.createElement("div");
+    section.className = "profile";
+    const heading = document.createElement("h3");
+    heading.textContent = profile[0];
+    const ul = document.createElement("ul");
+    profile[1].forEach(test => {
+      const li = document.createElement("li");
+      li.textContent = test;
+      ul.appendChild(li);
+    });
+    section.appendChild(heading);
+    section.appendChild(ul);
+    target.appendChild(section);
+  });
+  detailsBox.style.display = "block";
 });
 
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const pkg = packageSelect.value;
+  if (!pkg) { alert("कृपया पैकेज चुनें"); return; }
+  const p = packageData[pkg];
+  const offer = p.fixedPrice ? p.mrp.toFixed(2) : (p.mrp / 2).toFixed(2);
+  const name = document.getElementById("patientName").value.trim();
+  const age = document.getElementById("age").value;
+  const gender = document.getElementById("gender").value;
+  const mobile = document.getElementById("mobile").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const date = document.getElementById("bookingDate").value;
+  const time = document.getElementById("timeSlot").value;
+  const message =
+`*Krishna Health Care Services - New Booking*
+Patient Name: ${name}
+Age: ${age}
+Gender: ${gender}
+Mobile: ${mobile}
+Address: ${address || "Not provided"}
+Package: Aarogyam ${pkg}
+Parameters: ${p.count}
+MRP: Rs. ${p.mrp}
+${p.fixedPrice ? "Camp Package Price" : "50% Offer Price"}: Rs. ${offer}
+Booking Date: ${date || "Not selected"}
+Time: ${time || "Not selected"}`;
+  const url = "https://wa.me/918120262770?text=" + encodeURIComponent(message);
+  window.location.href = url;
+});
 </script>
-
 </body>
 </html>
