@@ -4,139 +4,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thyrocare Weight Management</title>
+
+<title>Thyrocare Jaanch Weight Management</title>
+
 <style>
-body {
-  margin: 0;
-  padding: 15px;
-  font-family: Arial, sans-serif;
-  background: #f3f6fb;
-  color: #202b40;
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ padding:15px;
+ font-family:Arial,sans-serif;
+ background:#f2f5fa;
+ color:#202b40;
 }
-.container {
-  max-width: 700px;
-  margin: auto;
+
+.container{
+ max-width:750px;
+ margin:auto;
 }
-.hero {
-  background: #10284f;
-  color: white;
-  padding: 25px;
-  border-radius: 18px;
-  text-align: center;
+
+.hero{
+ background:#10284f;
+ color:white;
+ padding:25px;
+ border-radius:16px;
+ text-align:center;
 }
-h1 { font-size: 27px; }
-.packages {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 20px;
+
+.hero h1{margin:0;font-size:27px}
+.hero p{line-height:1.6}
+
+.poster{
+ width:100%;
+ height:auto;
+ display:block;
+ margin:18px auto;
+ border-radius:12px;
 }
-.card {
-  background: white;
-  padding: 16px;
-  border-radius: 15px;
-  box-shadow: 0 3px 12px #ddd;
+
+.packages{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
 }
-.price {
-  color: #ef5149;
-  font-size: 25px;
-  font-weight: bold;
+
+.card{
+ background:white;
+ padding:16px;
+ border-radius:14px;
+ border:1px solid #ddd;
 }
-ul {
-  padding-left: 18px;
-  line-height: 1.8;
-  font-size: 13px;
+
+.card h2{font-size:19px}
+
+.price{
+ color:#ef5149;
+ font-size:26px;
+ font-weight:bold;
 }
-.buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 22px;
+
+ul{
+ padding-left:18px;
+ font-size:13px;
+ line-height:1.8;
 }
-.btn {
-  flex: 1;
-  padding: 16px 8px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 12px;
+
+.buttons{
+ display:flex;
+ gap:12px;
+ margin-top:22px;
 }
-.book { background: #159b63; }
-.call { background: #ef5149; }
-.note {
-  font-size: 12px;
-  color: #667085;
-  margin-top: 15px;
+
+.btn{
+ flex:1;
+ padding:17px 5px;
+ text-align:center;
+ color:white;
+ text-decoration:none;
+ font-weight:bold;
+ border-radius:12px;
 }
-footer {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 13px;
+
+.book{background:#159b63}
+.call{background:#ef5149}
+
+.share{
+ display:block;
+ text-align:center;
+ margin:20px;
+ color:#10284f;
+ font-weight:bold;
+ text-decoration:none;
 }
-@media(max-width:450px) {
-  .packages { grid-template-columns: 1fr; }
+
+.note{
+ font-size:12px;
+ color:#666;
+ line-height:1.5;
+}
+
+footer{
+ text-align:center;
+ margin-top:25px;
+ line-height:1.8;
+}
+
+@media(max-width:450px){
+ .packages{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <div class="hero">
-  <h1>THYROCARE JAANCH</h1>
-  <h2>Weight Management</h2>
-  <p>Find the reason behind your weight, low energy and fatigue.</p>
-  <b>Your Health, Our Responsibility</b>
+<h1>THYROCARE JAANCH</h1>
+<h2>Weight Management</h2>
+<p>
+Your weight is visible,<br>
+But what's behind it may not be.<br>
+Find the reason with Jaanch.
+</p>
 </div>
+
+<!-- YOUR POSTER PHOTO -->
+<img
+class="poster"
+src="assets/weight-management-poster.jpg"
+alt="Jaanch Weight Management Poster">
+
+<h2>Our Health Packages</h2>
 
 <div class="packages">
 
 <div class="card">
-  <h2>Male Package</h2>
-  <p>76 Parameters</p>
-  <div class="price">₹2899/-</div>
-  <ul>
-    <li>Diabetes Profile</li>
-    <li>Kidney Profile</li>
-    <li>Liver Profile</li>
-    <li>Lipid Profile</li>
-    <li>Thyroid Profile</li>
-    <li>Testosterone</li>
-    <li>Vitamin D</li>
-    <li>Cortisol</li>
-    <li>CBC, ESR & CRP</li>
-    <li>Uric Acid</li>
-  </ul>
+<h2>Male Package</h2>
+<p>76 Parameters</p>
+<div class="price">₹2899/-</div>
+
+<ul>
+<li>Cortisol</li>
+<li>25-OH Vitamin D</li>
+<li>ESR</li>
+<li>CRP</li>
+<li>Diabetes Profile</li>
+<li>Fasting Blood Sugar</li>
+<li>Insulin Fasting</li>
+<li>Testosterone</li>
+<li>CBC (30)</li>
+<li>Liver Profile</li>
+<li>Kidney Profile</li>
+<li>Lipid Profile</li>
+<li>Thyroid Profile</li>
+<li>Uric Acid</li>
+</ul>
 </div>
 
 <div class="card">
-  <h2>Female Package</h2>
-  <p>81 Parameters</p>
-  <div class="price">₹3499/-</div>
-  <ul>
-    <li>Diabetes Profile</li>
-    <li>Kidney Profile</li>
-    <li>Liver Profile</li>
-    <li>Lipid Profile</li>
-    <li>Thyroid Profile</li>
-    <li>FSH, LH</li>
-    <li>Prolactin</li>
-    <li>Vitamin D</li>
-    <li>Cortisol</li>
-    <li>CBC, ESR & CRP</li>
-  </ul>
+<h2>Female Package</h2>
+<p>81 Parameters</p>
+<div class="price">₹3499/-</div>
+
+<ul>
+<li>Cortisol</li>
+<li>25-OH Vitamin D</li>
+<li>ESR</li>
+<li>CRP</li>
+<li>Diabetes Profile</li>
+<li>Fasting Blood Sugar</li>
+<li>Insulin Fasting</li>
+<li>Testosterone</li>
+<li>CBC (30)</li>
+<li>Liver Profile</li>
+<li>Kidney Profile</li>
+<li>Lipid Profile</li>
+<li>Thyroid Profile</li>
+<li>FSH</li>
+<li>LH</li>
+<li>DHEA-S</li>
+<li>Prolactin</li>
+</ul>
 </div>
 
 </div>
 
 <p class="note">
-* 10-12 hours fasting may be required.
-Please confirm test availability and price before booking.
+* 10-12 hours fasting is essential.
+Please confirm package availability and final price before booking.
 </p>
 
 <div class="buttons">
+
 <a class="btn book"
-href="https://wa.me/918120262770?text=I%20want%20to%20book%20Weight%20Management%20Package">
+href="https://wa.me/918120262770?text=Namaste%2C%20mujhe%20Jaanch%20Weight%20Management%20Package%20book%20karna%20hai">
 BOOK NOW
 </a>
 
@@ -144,14 +206,21 @@ BOOK NOW
 href="tel:+918120262770">
 CALL NOW
 </a>
+
 </div>
 
+<a class="share"
+href="https://wa.me/?text=Thyrocare%20Jaanch%20Weight%20Management%20Packages%20Male%20Rs%202899%20Female%20Rs%203499">
+SHARE ON WHATSAPP
+</a>
+
 <footer>
-<b>THYROCARE</b><br>
+<b>THYROCARE JAANCH</b><br>
 Booking: 8120262770<br>
 Aapki Sehat, Hamari Zimmedari
 </footer>
 
 </div>
+
 </body>
 </html>
